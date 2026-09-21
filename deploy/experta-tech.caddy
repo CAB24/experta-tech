@@ -1,0 +1,18 @@
+(experta_static) {
+    root * /srv/experta-tech/current
+    encode zstd gzip
+    header X-Content-Type-Options nosniff
+    header Referrer-Policy strict-origin-when-cross-origin
+    header X-Frame-Options SAMEORIGIN
+    file_server
+}
+
+experta.tech {
+    import experta_static
+}
+
+# Temporary preview, independent of public DNS and certificate issuance.
+http://79.174.90.25 {
+    import experta_static
+    header X-Robots-Tag "noindex, nofollow"
+}
