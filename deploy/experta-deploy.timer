@@ -1,0 +1,12 @@
+[Unit]
+Description=Check GitHub main for experta.tech updates
+
+[Timer]
+OnBootSec=45s
+OnUnitActiveSec=60s
+AccuracySec=5s
+RandomizedDelaySec=5s
+Unit=experta-deploy.service
+
+[Install]
+WantedBy=timers.target

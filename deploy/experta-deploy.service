@@ -1,0 +1,19 @@
+[Unit]
+Description=Deploy experta.tech from GitHub main
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=experta-deploy
+Group=experta-deploy
+Environment=HOME=/srv/experta-tech
+Environment=GIT_TERMINAL_PROMPT=0
+ExecStart=/usr/local/libexec/experta-update-site
+TimeoutStartSec=120
+UMask=0022
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/srv/experta-tech
