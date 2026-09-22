@@ -11,8 +11,7 @@ experta.tech {
     import experta_static
 }
 
-# Temporary preview, independent of public DNS and certificate issuance.
+# The production domain is canonical; preserve paths and query strings.
 http://79.174.90.25 {
-    import experta_static
-    header X-Robots-Tag "noindex, nofollow"
+    redir https://experta.tech{uri} 308
 }

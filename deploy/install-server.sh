@@ -38,7 +38,7 @@ if ! systemctl reload caddy; then
   echo "Reload failed; restored configuration from $backup" >&2
   exit 1
 fi
-curl --fail --silent --show-error --max-time 10 -H 'Host: 79.174.90.25' http://127.0.0.1/ > /dev/null
+curl --fail --silent --show-error --max-time 10 --resolve experta.tech:443:127.0.0.1 https://experta.tech/ > /dev/null
 systemctl daemon-reload
 systemctl enable --now experta-deploy.timer
 echo "Installed experta.tech. Configuration backup: $backup"
